@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.olx_original.databinding.FragmentBodyBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,9 +34,12 @@ class BodyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_body, container, false)
+    ): View {
+        val binding = FragmentBodyBinding.inflate(layoutInflater, container, false)
+        val recyler = binding.elonRecycler
+        recyler.adapter = ElonRecyclerAdapter()
+        recyler.layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, true)
+        return binding.root
     }
 
     companion object {

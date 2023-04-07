@@ -10,7 +10,5 @@ class Category(var nomi:String, var parent: Category?, var children:ArrayList<Ca
             }
             bigParent = i
         }
-
-
     }
 }
